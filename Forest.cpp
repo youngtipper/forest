@@ -226,7 +226,13 @@ int Forest::init(int na, int np, int _X, int _Y)
 }
 
 int Forest::grow()
-{
+{	
+    
+    for (int i = 0; i < n_plants; i++) {
+	delete plants[i];
+	}
+
+    delete[] plants;
     n_plants++;
     plants = new Plant*[n_plants];
     if (!plants) return 4;
@@ -303,7 +309,12 @@ int ia = 0, ip = 0, _x, _y;
 }
 
 int Forest::less()
-{
+{   
+    for (int i = 0; i < n_plants; i++) {
+	delete plants[i];
+	}
+
+    delete[] plants;
     n_plants--;
     plants = new Plant*[n_plants];
     if (!plants) return 4;
